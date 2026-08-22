@@ -1,4 +1,4 @@
-package com.kokozayyar24.myapp;
+package com.example.myapp;
 
 import android.app.Activity;
 import android.os.Bundle;
