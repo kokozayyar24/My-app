@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'com.kokozayyar24.myapp'
+    applicationId 'com.kokozayyar24.myapp'
     compileSdk 35
 
     defaultConfig {
