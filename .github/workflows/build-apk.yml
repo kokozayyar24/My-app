@@ -1,41 +1,22 @@
-name: Build APK
+plugins {
+    id 'com.android.application'
+}
 
-on:
-  workflow_dispatch:
+android {
+    namespace 'com.kokozayyar24.myapp'
+    compileSdk 35
 
-permissions:
-  contents: write
+    defaultConfig {
+        applicationId 'com.kokozayyar24.myapp'
+        minSdk 23
+        targetSdk 35
+        versionCode 1
+        versionName '1.0'
+    }
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
-
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
-
-      - name: Build APK
-        run: gradle assembleDebug
-
-      - name: Upload APK to Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: v1.0.0
-          name: My App v1.0.0
-          files: app/build/outputs/apk/debug/app-debug.apk
-          generate_release_notes: true
-
-      - name: Upload APK as Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
