@@ -1,2 +1,16 @@
-namespace 'com.kokozayyar24.myapp'
-applicationId 'com.kokozayyar24.myapp'
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.kokozayyar24.myapp'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.kokozayyar24.myapp'
+        minSdk 23
+        targetSdk 35
+        versionCode 1
+        versionName '1.0'
+    }
+}
